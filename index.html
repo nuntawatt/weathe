@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather</h1>
+        <input type="text" id="city" placeholder="พิมพ์ชื่อเมือง" list="city-list">
+        <datalist id="city-list">
+            <option value="London">ลอนดอน</option>
+            <option value="New York">นิวยอร์ก</option>
+            <option value="Tokyo">โตเกียว</option>
+            <option value="Sydney">ซิดนีย์</option>
+            <option value="Paris">ปารีส</option>
+            <option value="Bangkok">กรุงเทพ</option>
+            <option value="Moscow">มอสโก</option>
+            <option value="Beijing">ปักกิ่ง</option>
+            <option value="Dubai">ดูไบ</option>
+            <option value="Rio de Janeiro">ริโอ เด จาเนโร</option>
+            <option value="Los Angeles">ลอสแองเจลิส</option>
+            <option value="Berlin">เบอร์ลิน</option>
+            <option value="Toronto">โตรอนโต</option>
+            <option value="Mexico City">เม็กซิโกซิตี้</option>
+            <option value="Johannesburg">โจฮันเนสเบิร์ก</option>
+            <option value="Buenos Aires">บัวโนสไอเรส</option>
+            <option value="Istanbul">อิสตันบูล</option>
+            <option value="Seoul">โซล</option>
+            <option value="Jakarta">จาการ์ตา</option>
+            <option value="Cairo">ไคโร</option>
+            <option value="Mumbai">มุมไบ</option>
+            <option value="Rome">โรม</option>
+            <option value="Nairobi">ไนโรบี</option>
+            <option value="Lagos">ลากอส</option>
+            <option value="Lima">ลิมา</option>
+            <option value="Madrid">มาดริด</option>
+            <option value="Hanoi">ฮานอย</option>
+            <option value="Manila">มะนิลา</option>
+            <option value="Bogotá">โบโกตา</option>
+            <option value="Santiago">ซานเตียโก</option>
+            <option value="Kuala Lumpur">กัวลาลัมเปอร์</option>
+            <option value="Singapore">สิงคโปร์</option>
+            <option value="Hong Kong">ฮ่องกง</option>
+            <option value="Barcelona">บาร์เซโลนา</option>
+            <option value="Athens">เอเธนส์</option>
+            <option value="Warsaw">วอร์ซอ</option>
+            <option value="Budapest">บูดาเปสต์</option>
+            <option value="Vienna">เวียนนา</option>
+            <option value="Helsinki">เฮลซิงกิ</option>
+            <option value="Stockholm">สตอกโฮล์ม</option>
+            <option value="Oslo">ออสโล</option>
+            <option value="Copenhagen">โคเปนเฮเกน</option>
+            <option value="Amsterdam">อัมสเตอร์ดัม</option>
+            <option value="Brussels">บรัสเซลส์</option>
+            <option value="Zurich">ซูริก</option>
+            <option value="Prague">ปราก</option>
+            <option value="Lisbon">ลิสบอน</option>
+            <option value="Dublin">ดับลิน</option>
+            <option value="Edinburgh">เอดินบะระ</option>
+            <option value="Venice">เวนิส</option>
+            <option value="Munich">มิวนิก</option>
+            <option value="Frankfurt">แฟรงก์เฟิร์ต</option>
+            <option value="Hamburg">ฮัมบูร์ก</option>
+            <option value="Casablanca">คาซาบลังกา</option>
+            <option value="Cape Town">เคปทาวน์</option>
+            <option value="Lusaka">ลูซากา</option>
+            <option value="Accra">อักกรา</option>
+            <option value="Algiers">แอลเจียร์</option>
+            <option value="Rabat">ราบัต</option>
+            <option value="Tunis">ตูนิส</option>
+            <option value="Tripoli">ตริโปลี</option>
+            <option value="Amman">อัมมาน</option>
+            <option value="Damascus">ดามัสกัส</option>
+            <option value="Baghdad">แบกแดด</option>
+            <option value="Tehran">เตหะราน</option>
+            <option value="Islamabad">อิสลามาบัด</option>
+            <option value="Karachi">การาจี</option>
+            <option value="Dhaka">ธากา</option>
+            <option value="Kolkata">โกลกาตา</option>
+            <option value="Chennai">เจนไน</option>
+            <option value="Bangalore">บังกาลอร์</option>
+            <option value="Hyderabad">ไฮเดอราบาด</option>
+            <option value="Pune">ปูเน่</option>
+            <option value="Ahmedabad">อาเมดาบัด</option>
+            <option value="Surat">สุรัต</option>
+            <option value="Patna">ปัฏนา</option>
+            <option value="Lucknow">ลัคเนา</option>
+            <option value="Bhopal">โภปาล</option>
+            <option value="Indore">อินดอร์</option>
+            <option value="Nagpur">นาคปุระ</option>
+            <option value="Kanpur">กันปุระ</option>
+            <option value="Agra">อัครา</option>
+            <option value="Jaipur">ชัยปุระ</option>
+            <option value="Vadodara">วาโดดารา</option>
+            <option value="Guadalajara">กวาดาลาฮารา</option>
+            <option value="Medellin">เมเดยีน</option>
+            <option value="Marseille">มาร์เซย์</option>
+            <option value="Krakow">คราคูฟ</option>
+            <option value="Sofia">โซเฟีย</option>
+            <option value="Belgrade">เบลเกรด</option>
+            <option value="Zagreb">ซาเกร็บ</option>
+        </datalist>
+
+        <button onclick="getWeather()">ดูสภาพอากาศ</button>
+        <div id="weather-info" class="weather-info"></div>
+    </div>
+
+    <div class="pop-up" id="weatherPopUp">
+        <div class="pop-up-content">
+            <span class="close-btn" onclick="closePopUp()">&times;</span>
+            <div id="pop-up-weather-info"></div>
+        </div>
+    </div>
+    <script src="weather.js"></script>
+
+
+</body>
+</html>
