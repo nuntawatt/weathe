@@ -1,123 +1,141 @@
 <!DOCTYPE html>
-<html lang="th">
+<html data-theme="emerald">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Weather</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?nature,sky');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1; /* ให้ content ใช้พื้นที่ทั้งหมดที่เหลืออยู่ */
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9); /* ทำให้การ์ดมีความโปร่งใส */
+            color: #000;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.02); /* เพิ่มเอฟเฟกต์ขยายการ์ดเมื่อ hover */
+        }
+
+        footer {
+            background-color: #2a9d8f; /* สีเขียวเข้ากับธีมธรรมชาติ */
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .city-info {
+            background-color: #2a9d8f; /* สีเขียวอ่อน */
+            color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* เพื่อจัดให้ทุกอย่างอยู่ในบรรทัดเดียวกันแต่ยัง responsive */
+        }
+
+        .weather-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .weather-icon {
+            font-size: 4rem;
+        }
+    </style>
 </head>
+<body class="bg-green-200 text-gray-800">
 
-<body>
-    <div class="container">
-        <h1>Weather</h1>
-        <input type="text" id="city" placeholder="พิมพ์ชื่อเมือง" list="city-list">
-        <datalist id="city-list">
-            <option value="London">ลอนดอน</option>
-            <option value="New York">นิวยอร์ก</option>
-            <option value="Tokyo">โตเกียว</option>
-            <option value="Sydney">ซิดนีย์</option>
-            <option value="Paris">ปารีส</option>
-            <option value="Bangkok">กรุงเทพ</option>
-            <option value="Moscow">มอสโก</option>
-            <option value="Beijing">ปักกิ่ง</option>
-            <option value="Dubai">ดูไบ</option>
-            <option value="Rio de Janeiro">ริโอ เด จาเนโร</option>
-            <option value="Los Angeles">ลอสแองเจลิส</option>
-            <option value="Berlin">เบอร์ลิน</option>
-            <option value="Toronto">โตรอนโต</option>
-            <option value="Mexico City">เม็กซิโกซิตี้</option>
-            <option value="Johannesburg">โจฮันเนสเบิร์ก</option>
-            <option value="Buenos Aires">บัวโนสไอเรส</option>
-            <option value="Istanbul">อิสตันบูล</option>
-            <option value="Seoul">โซล</option>
-            <option value="Jakarta">จาการ์ตา</option>
-            <option value="Cairo">ไคโร</option>
-            <option value="Mumbai">มุมไบ</option>
-            <option value="Rome">โรม</option>
-            <option value="Nairobi">ไนโรบี</option>
-            <option value="Lagos">ลากอส</option>
-            <option value="Lima">ลิมา</option>
-            <option value="Madrid">มาดริด</option>
-            <option value="Hanoi">ฮานอย</option>
-            <option value="Manila">มะนิลา</option>
-            <option value="Bogotá">โบโกตา</option>
-            <option value="Santiago">ซานเตียโก</option>
-            <option value="Kuala Lumpur">กัวลาลัมเปอร์</option>
-            <option value="Singapore">สิงคโปร์</option>
-            <option value="Hong Kong">ฮ่องกง</option>
-            <option value="Barcelona">บาร์เซโลนา</option>
-            <option value="Athens">เอเธนส์</option>
-            <option value="Warsaw">วอร์ซอ</option>
-            <option value="Budapest">บูดาเปสต์</option>
-            <option value="Vienna">เวียนนา</option>
-            <option value="Helsinki">เฮลซิงกิ</option>
-            <option value="Stockholm">สตอกโฮล์ม</option>
-            <option value="Oslo">ออสโล</option>
-            <option value="Copenhagen">โคเปนเฮเกน</option>
-            <option value="Amsterdam">อัมสเตอร์ดัม</option>
-            <option value="Brussels">บรัสเซลส์</option>
-            <option value="Zurich">ซูริก</option>
-            <option value="Prague">ปราก</option>
-            <option value="Lisbon">ลิสบอน</option>
-            <option value="Dublin">ดับลิน</option>
-            <option value="Edinburgh">เอดินบะระ</option>
-            <option value="Venice">เวนิส</option>
-            <option value="Munich">มิวนิก</option>
-            <option value="Frankfurt">แฟรงก์เฟิร์ต</option>
-            <option value="Hamburg">ฮัมบูร์ก</option>
-            <option value="Casablanca">คาซาบลังกา</option>
-            <option value="Cape Town">เคปทาวน์</option>
-            <option value="Lusaka">ลูซากา</option>
-            <option value="Accra">อักกรา</option>
-            <option value="Algiers">แอลเจียร์</option>
-            <option value="Rabat">ราบัต</option>
-            <option value="Tunis">ตูนิส</option>
-            <option value="Tripoli">ตริโปลี</option>
-            <option value="Amman">อัมมาน</option>
-            <option value="Damascus">ดามัสกัส</option>
-            <option value="Baghdad">แบกแดด</option>
-            <option value="Tehran">เตหะราน</option>
-            <option value="Islamabad">อิสลามาบัด</option>
-            <option value="Karachi">การาจี</option>
-            <option value="Dhaka">ธากา</option>
-            <option value="Kolkata">โกลกาตา</option>
-            <option value="Chennai">เจนไน</option>
-            <option value="Bangalore">บังกาลอร์</option>
-            <option value="Hyderabad">ไฮเดอราบาด</option>
-            <option value="Pune">ปูเน่</option>
-            <option value="Ahmedabad">อาเมดาบัด</option>
-            <option value="Surat">สุรัต</option>
-            <option value="Patna">ปัฏนา</option>
-            <option value="Lucknow">ลัคเนา</option>
-            <option value="Bhopal">โภปาล</option>
-            <option value="Indore">อินดอร์</option>
-            <option value="Nagpur">นาคปุระ</option>
-            <option value="Kanpur">กันปุระ</option>
-            <option value="Agra">อัครา</option>
-            <option value="Jaipur">ชัยปุระ</option>
-            <option value="Vadodara">วาโดดารา</option>
-            <option value="Guadalajara">กวาดาลาฮารา</option>
-            <option value="Medellin">เมเดยีน</option>
-            <option value="Marseille">มาร์เซย์</option>
-            <option value="Krakow">คราคูฟ</option>
-            <option value="Sofia">โซเฟีย</option>
-            <option value="Belgrade">เบลเกรด</option>
-            <option value="Zagreb">ซาเกร็บ</option>
-        </datalist>
-
-        <button onclick="getWeather()">ดูสภาพอากาศ</button>
-        <div id="weather-info" class="weather-info"></div>
-    </div>
-
-    <div class="pop-up" id="weatherPopUp">
-        <div class="pop-up-content">
-            <span class="close-btn" onclick="closePopUp()">&times;</span>
-            <div id="pop-up-weather-info"></div>
+<div class="content">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold mb-4 text-center">Weather</h1>
+        <div class="flex justify-center mb-4">
+            <input id="city-input" type="text" placeholder="ค้นหาชื่อเมือง" class="input input-bordered w-full max-w-xs" />
+            <button id="search-button" class="btn btn-success ml-2">ค้นหา</button>
+        </div>
+        <div id="weather-data" class="hidden">
+            <div class="card bg-gray-600 p-4">
+                <div class="city-info">
+                    <div class="weather-details">
+                        <h2 id="city-name" class="text-2xl font-bold mb-2"></h2>
+                        <p>อุณหภูมิ: <span id="temperature"></span> °C</p>
+                        <p>ความเร็วลม: <span id="wind"></span> m/s</p>
+                        <p>ความชื้น: <span id="humidity"></span> %</p>
+                    </div>
+                    <div class="weather-icon">
+                        <img id="weather-icon" src="" alt="Weather Icon" class="w-20 h-20"/> <!-- เพิ่มไอคอนสภาพอากาศ -->
+                    </div>
+                </div>
+                <div id="radar-map" class="mt-4">
+                    <iframe src="" width="100%" height="650" frameborder="0" class="rounded"></iframe>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="weather.js"></script>
+</div>
 
+<!-- Footer -->
+<footer>
+    <p> Weather Forecast App © 2024 - By Moragon Designer </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const apiKey = '6cd09f89a0009e6a31c3bcbf35ad4f2b';
+
+    document.getElementById('search-button').addEventListener('click', () => {
+        const city = document.getElementById('city-input').value;
+        getWeatherData(city);
+    });
+
+    document.getElementById('city-input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            getWeatherData(e.target.value);
+        }
+    });
+
+    async function getWeatherData(city) {
+        try {
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            const data = response.data;
+
+            document.getElementById('city-name').textContent = data.name;
+            document.getElementById('temperature').textContent = `${data.main.temp}`;
+            document.getElementById('wind').textContent = `${data.wind.speed}`;
+            document.getElementById('humidity').textContent = `${data.main.humidity}`;
+            document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+            const radarMap = document.getElementById('radar-map').querySelector('iframe');
+            radarMap.src = `https://embed.windy.com/embed2.html?lat=${data.coord.lat}&lon=${data.coord.lon}&detailLat=${data.coord.lat}&detailLon=${data.coord.lon}&zoom=5&level=surface&overlay=clouds&product=radar&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1`;
+
+            document.getElementById('weather-data').classList.remove('hidden');
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+        }
+    }
+</script>
 
 </body>
 </html>
